@@ -1,7 +1,7 @@
 package chr.ved.core.base;
 
 
-public class Constant {
+public class Constant implements ExpressionType{
     protected Double value;
 
     public Constant(Double value){
@@ -11,5 +11,15 @@ public class Constant {
 
     public Double getValue(){
         return this.value;
+    }
+
+    @Override
+    public Type getExpressionType() {
+        return Type.CONSTANT;
+    }
+
+    @Override
+    public Constant getObject() {
+        return this;
     }
 }

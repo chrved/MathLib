@@ -19,4 +19,9 @@ public class Operator implements ExpressionType {
         return Type.OPERATOR;
     }
 
+    @Override
+    public Operator getObject() {
+        return this;
+    }
+
 }

@@ -1,7 +1,6 @@
 package chr.ved.core.equation.impl;
 
-import chr.ved.core.base.Expression;
-import chr.ved.core.base.ExpressionType;
+import chr.ved.core.base.*;
 import chr.ved.core.equation.Solution;
 /*
     One variable:
@@ -11,12 +10,27 @@ import chr.ved.core.equation.Solution;
     It has therefore a unique solution for y, which is given by
     y=-(a/b)*x -c/b. With slope -a/b and  y-intercept -c/b
 
+y=2x+1
+-1=2x
+x = -1/2
  */
+
 public class LinearEquation extends AbstracEquation {
 
     public LinearEquation(){
         leftSide = new Expression();
         rightSide = new Expression();
+    }
+    @Override
+    public boolean solve() {
+        Term t = (Term) leftSide.getExpressions().get(0).getObject();
+        Variable y = (Variable) ((Term) leftSide.getExpressions().get(0).getObject()).getVariable();
+        Constant cx = (Constant) rightSide.getExpressions().get(0).getObject();
+        Variable x = (Variable) rightSide.getExpressions().get(1).getObject();
+        Operator op = (Operator) rightSide.getExpressions().get(2).getObject();
+        Constant m = (Constant) rightSide.getExpressions().get(3).getObject();
+
+            return false;
     }
 
     @Override
@@ -37,12 +51,6 @@ public class LinearEquation extends AbstracEquation {
     @Override
     public Expression getRightSide() {
         return rightSide;
-    }
-
-    @Override
-    public boolean solve() {
-        if()
-        return false;
     }
 
     @Override

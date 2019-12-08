@@ -53,4 +53,13 @@ public class Term implements ExpressionType {
     public Type getExpressionType() {
         return Type.TERM;
     }
+
+    @Override
+    public Term getObject() {
+        return this;
+    }
+    public Variable getVariable(){return variable;}
+    public Constant getCofficient(){return cofficient;};
+    public Constant getConstant(){return constant;}
+    public Exponent getExponent(){return exponent;}
 }

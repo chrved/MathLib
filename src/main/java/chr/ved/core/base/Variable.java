@@ -1,6 +1,6 @@
 package chr.ved.core.base;
 
-public class Variable {
+public class Variable implements ExpressionType{
     private String name;
     private Constant value;
     public Variable(String name){
@@ -18,4 +18,14 @@ public class Variable {
     }
 
     public String getName(){ return this.name; }
+
+    @Override
+    public Type getExpressionType() {
+        return Type.VARIABLE;
+    }
+
+    @Override
+    public Variable getObject() {
+        return this;
+    }
 }
