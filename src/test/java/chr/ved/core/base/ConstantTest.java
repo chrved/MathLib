@@ -1,4 +1,4 @@
-package chr.ved.core;
+package chr.ved.core.base;
 
 import org.junit.Test;
 
@@ -8,7 +8,9 @@ public class ConstantTest {
 
     @Test
     public void getValue() {
-        Constant<Integer> a = new Constant<>(12);
+        Constant a = new Constant(12d);
         assertTrue(12 == a.getValue());
+        Constant d = new Constant();
+        assertTrue(d.getValue() == null);
     }
 }
