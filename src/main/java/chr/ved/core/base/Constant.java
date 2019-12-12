@@ -1,25 +1,27 @@
 package chr.ved.core.base;
 
+import lombok.Getter;
 
-public class Constant implements ExpressionType{
+@Getter
+public class Constant implements BaseType{
     protected Double value;
+    protected Double exponent;
+    protected Type type;
 
+    public Constant(){ this.type = Type.CONSTANT;}
     public Constant(Double value){
+        this();
         this.value = value;
     }
-    protected Constant(){}
-
-    public Double getValue(){
-        return this.value;
+    public Constant(Double value, Double exponent){
+        this(value);
+        this.exponent = exponent;
     }
-
     @Override
-    public Type getExpressionType() {
-        return Type.CONSTANT;
-    }
-
-    @Override
-    public Constant getObject() {
-        return this;
+    public Double solve(){
+        if(value != null && exponent != null){
+            return Math.pow(value,exponent);
+        }
+        return value;
     }
 }

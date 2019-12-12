@@ -1,31 +1,26 @@
 package chr.ved.core.base;
 
-public class Variable implements ExpressionType{
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class Variable extends Constant{
     private String name;
-    private Constant value;
+
     public Variable(String name){
+        super();
         this.name = name;
+        this.type = Type.VARIABLE;
     }
 
-    public void setValue(Double value){
-        this.value = new Constant(value);
+    public Variable(String name, Double constant){
+        this(name);
+        this.value = constant;
+//        setOperatorType(constant);
     }
-    public Double getValue(){
-        return this.value != null ? this.value.getValue() : null;
-    }
-    public Constant getConstant(){
-        return this.value;
-    }
-
-    public String getName(){ return this.name; }
-
-    @Override
-    public Type getExpressionType() {
-        return Type.VARIABLE;
-    }
-
-    @Override
-    public Variable getObject() {
-        return this;
+    public Variable(String name, Double constant, Double exponent){
+        this(name, constant);
+        this.exponent = exponent;
     }
 }

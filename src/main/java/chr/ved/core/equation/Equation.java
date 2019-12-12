@@ -1,11 +1,10 @@
 package chr.ved.core.equation;
 
-import chr.ved.core.base.Expression;
-import chr.ved.core.base.ExpressionType;
+import chr.ved.core.base.BaseType;
 
 public interface Equation {
-    void addToLeftSide(ExpressionType element);
-    void addToRightSide(ExpressionType element);
+    void addToLeftSide(BaseType element);
+    void addToRightSide(BaseType element);
     Expression getLeftSide();
     Expression getRightSide();
     boolean solve();

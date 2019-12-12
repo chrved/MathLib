@@ -1,18 +1,20 @@
-package chr.ved.core.base;
+package chr.ved.core.equation;
+
+import chr.ved.core.base.BaseType;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Expression {
-    private List<ExpressionType> expressions;
+    private List<BaseType> expressions;
     public Expression(){
         expressions = new ArrayList<>();
     }
-    public void addToExpression(ExpressionType part){
+    public void addToExpression(BaseType part){
         expressions.add(part);
     }
 
-    public List<ExpressionType> getExpressions(){
+    public List<BaseType> getExpressions(){
         return expressions;
     }
 }

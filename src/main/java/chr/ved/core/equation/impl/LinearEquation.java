@@ -15,46 +15,46 @@ y=2x+1
 x = -1/2
  */
 
-public class LinearEquation extends AbstracEquation {
+public class LinearEquation  {
 
-    public LinearEquation(){
-        leftSide = new Expression();
-        rightSide = new Expression();
-    }
-    @Override
-    public boolean solve() {
-        Term t = (Term) leftSide.getExpressions().get(0).getObject();
-        Variable y = (Variable) ((Term) leftSide.getExpressions().get(0).getObject()).getVariable();
-        Constant cx = (Constant) rightSide.getExpressions().get(0).getObject();
-        Variable x = (Variable) rightSide.getExpressions().get(1).getObject();
-        Operator op = (Operator) rightSide.getExpressions().get(2).getObject();
-        Constant m = (Constant) rightSide.getExpressions().get(3).getObject();
-
-            return false;
-    }
-
-    @Override
-    public void addToLeftSide(ExpressionType element) {
-        leftSide.addToExpression(element);
-    }
-
-    @Override
-    public void addToRightSide(ExpressionType element) {
-        rightSide.addToExpression(element);
-    }
-
-    @Override
-    public Expression getLeftSide() {
-        return leftSide;
-    }
-
-    @Override
-    public Expression getRightSide() {
-        return rightSide;
-    }
-
-    @Override
-    public Solution getSoution() {
-        return null;
-    }
+//    public LinearEquation(){
+//        leftSide = new Expression();
+//        rightSide = new Expression();
+//    }
+//    @Override
+//    public boolean solve() {
+//        Term t = (Term) leftSide.getExpressions().get(0).getObject();
+//        Variable y = (Variable) ((Term) leftSide.getExpressions().get(0).getObject()).getVariable();
+//        Constant cx = (Constant) rightSide.getExpressions().get(0).getObject();
+//        Variable x = (Variable) rightSide.getExpressions().get(1).getObject();
+//        Operator op = (Operator) rightSide.getExpressions().get(2).getObject();
+//        Constant m = (Constant) rightSide.getExpressions().get(3).getObject();
+//
+//            return false;
+//    }
+//
+//    @Override
+//    public void addToLeftSide(BaseType element) {
+//        leftSide.addToExpression(element);
+//    }
+//
+//    @Override
+//    public void addToRightSide(BaseType element) {
+//        rightSide.addToExpression(element);
+//    }
+//
+//    @Override
+//    public Expression getLeftSide() {
+//        return leftSide;
+//    }
+//
+//    @Override
+//    public Expression getRightSide() {
+//        return rightSide;
+//    }
+//
+//    @Override
+//    public Solution getSoution() {
+//        return null;
+//    }
 }
