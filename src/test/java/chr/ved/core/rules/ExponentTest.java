@@ -1,13 +1,5 @@
 package chr.ved.core.rules;
 
-import chr.ved.core.base.Constant;
-import chr.ved.core.base.Variable;
-import chr.ved.core.exception.ValueMissingException;
-import org.junit.Test;
-
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.*;
-
 public class ExponentTest {
 
 //    @Test

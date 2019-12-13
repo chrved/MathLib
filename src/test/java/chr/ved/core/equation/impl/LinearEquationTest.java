@@ -1,31 +1,36 @@
 package chr.ved.core.equation.impl;
 
+import chr.ved.core.base.*;
+import chr.ved.core.base.impl.numeric.Constant;
+import chr.ved.core.base.impl.numeric.Variable;
+import chr.ved.core.equation.Equation;
+import org.junit.Test;
+
+import java.util.Map;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.*;
+
 public class LinearEquationTest {
 
-//    @Test
-//    public void test1(){
-//        //y=2x+1 x=2 y=?
+    @Test
+    public void solveSimple() {
 //        Equation eq = new LinearEquation();
-//        Variable y = new Variable("y");
-//        Term ty = new Term(y);
-//        eq.addToLeftSide(ty);
-
+//        //y(x) = x + 5
+//        Constant c = new Constant(5d);
 //        Variable x = new Variable("x");
-//        x.setValue(2d);
-//        Constant cx = new Constant(2d);
-//        Term tx = new Term(cx, x);
-//        eq.addToRightSide(tx);
+//        Variable y = new Variable("y");
+//        Operator op = new Operator(BaseType.OperatorType.PLUS);
 //
-//        Operator op = new Operator(Operator.OperatorType.ADD);
+//        eq.addToLeftSide(y);
+//        eq.addToRightSide(x);
 //        eq.addToRightSide(op);
+//        eq.addToRightSide(c);
 //
-//        Constant m = new Constant(1d);
-//        Term tm = new Term(m);
-//        eq.addToRightSide(tm);
-//
+//        assertThat(true, equalTo(eq.solve()));
+//        x.setValue(5d);
 //        eq.solve();
-//        System.out.println("");
 //
-//    }
-
+//        Map<String, Double> s = eq.getSoution();
+    }
 }

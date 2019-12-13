@@ -1,6 +1,6 @@
 package chr.ved.core.rules;
 
-import chr.ved.core.base.Constant;
+import chr.ved.core.base.impl.numeric.Constant;
 
 public interface Rule {
     Double solve();

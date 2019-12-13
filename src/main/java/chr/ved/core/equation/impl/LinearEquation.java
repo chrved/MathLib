@@ -1,7 +1,8 @@
 package chr.ved.core.equation.impl;
 
-import chr.ved.core.base.*;
-import chr.ved.core.equation.Solution;
+import chr.ved.core.base.impl.numeric.Constant;
+import chr.ved.core.base.impl.numeric.Variable;
+import chr.ved.core.equation.Term;
 /*
     One variable:
     ax+b=0 and it has a unique solution x=-b/a with a ≠ 0
@@ -15,46 +16,46 @@ y=2x+1
 x = -1/2
  */
 
-public class LinearEquation  {
-
+public class LinearEquation {//extends AbstracEquation {
+//
+//    private Variable y;
+//    private Constant k;
+//    private Constant m;
+//    private Variable x;
+//    private Operator op;
+//
 //    public LinearEquation(){
-//        leftSide = new Expression();
-//        rightSide = new Expression();
+//        super();
 //    }
 //    @Override
 //    public boolean solve() {
-//        Term t = (Term) leftSide.getExpressions().get(0).getObject();
-//        Variable y = (Variable) ((Term) leftSide.getExpressions().get(0).getObject()).getVariable();
-//        Constant cx = (Constant) rightSide.getExpressions().get(0).getObject();
-//        Variable x = (Variable) rightSide.getExpressions().get(1).getObject();
-//        Operator op = (Operator) rightSide.getExpressions().get(2).getObject();
-//        Constant m = (Constant) rightSide.getExpressions().get(3).getObject();
 //
+//        // Set to correct form; y = kx + m
+//            setToCorrectForm();
+//        // Solve
+//            return checkIfSolvable();
+//    }
+//
+//    private boolean checkIfSolvable() {
+//        Term t = new Term(x);
+//        t.g
+//        k =
+//        x = (Variable) rightSide.getExpressions().get(0).getObject();
+//        op = (Operator) rightSide.getExpressions().get(1).getObject();
+//        m = (Constant) rightSide.getExpressions().get(2).getObject();
+//        if(x.getValue() == null){
 //            return false;
+//        }
+//
+//        solution.put("x",x.solve());
+//
+//        solution.put("m",m.solve());
+//
+//        solution.put("y",m.solve()+x.solve());
+//        return true;
 //    }
 //
-//    @Override
-//    public void addToLeftSide(BaseType element) {
-//        leftSide.addToExpression(element);
-//    }
+//    private void setToCorrectForm() {
 //
-//    @Override
-//    public void addToRightSide(BaseType element) {
-//        rightSide.addToExpression(element);
-//    }
-//
-//    @Override
-//    public Expression getLeftSide() {
-//        return leftSide;
-//    }
-//
-//    @Override
-//    public Expression getRightSide() {
-//        return rightSide;
-//    }
-//
-//    @Override
-//    public Solution getSoution() {
-//        return null;
 //    }
 }

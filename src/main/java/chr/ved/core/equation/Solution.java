@@ -1,4 +1,7 @@
 package chr.ved.core.equation;
 
-public class Solution {
+import java.util.Map;
+
+public interface Solution {
+    Map<String, Double> getSolution();
 }
