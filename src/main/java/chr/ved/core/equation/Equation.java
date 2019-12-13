@@ -1,6 +1,8 @@
 package chr.ved.core.equation;
 
 import chr.ved.core.base.BaseType;
+import chr.ved.core.base.impl.numeric.Variable;
+import chr.ved.core.equation.impl.Expression;
 
 import java.util.Map;
 
@@ -10,5 +12,5 @@ public interface Equation {
     Expression getLeftSide();
     Expression getRightSide();
     boolean solve();
-    Map<String, Double> getSoution();
+    Map<String, Variable> getSoution();
 }

@@ -1,4 +1,4 @@
-package chr.ved.core.equation;
+package chr.ved.core.equation.impl;
 
 import chr.ved.core.base.BaseType;
 
