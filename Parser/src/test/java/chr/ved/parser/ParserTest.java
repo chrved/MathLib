@@ -25,12 +25,22 @@ public class ParserTest extends BaseTest {
 
         assertEquals(4.0,result.getValue(),0.0);
     }
+    @Test
+    public void test3(){
+        Parser parser = new Parser(tokenizer, expressionParser);
+        String str = "3*2+3";
+        ExpressionNode result = parser.parse(str);
+
+        assertEquals(9,result.getValue(),0.0);
+    }
 
     @Test
     public void test11(){
         Parser parser = new Parser(tokenizer, expressionParser);
-        String str = "5x^2 -2x + 3";
-        parser.parse(str);
+        String str = "3*2^4 + sqrt(1+3)";
+        ExpressionNode result = parser.parse(str);
+
+        assertEquals(50.0,result.getValue(),0.0);
     }
 
 }

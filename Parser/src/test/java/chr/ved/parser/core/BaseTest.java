@@ -23,7 +23,7 @@ public class BaseTest {
         tokenizer.addTokenType("\\(", new OpenBracket()); // open bracket
         tokenizer.addTokenType("\\)", new CloseBracket()); // close bracket
         tokenizer.addTokenType("[+-]", new PlusMinus()); // plus or minus
-        tokenizer.addTokenType("[*/]", new PlusMinus()); // mult or divide
+        tokenizer.addTokenType("[*/]", new MultDiv()); // mult or divide
         tokenizer.addTokenType("\\^", new Pow()); // raised
         tokenizer.addTokenType("[0-9]+", new Number()); // integer number
         tokenizer.addTokenType("[a-zA-Z][a-zA-Z0-9_]*", new Variable()); // variable
