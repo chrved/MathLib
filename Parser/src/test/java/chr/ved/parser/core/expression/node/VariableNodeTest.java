@@ -8,10 +8,6 @@ import static org.junit.Assert.*;
 public class VariableNodeTest {
 
     @Test
-    public void setValue() {
-    }
-
-    @Test
     public void getType() {
         VariableNode a = new VariableNode("x");
         assertEquals(ExpressionNode.ExpressionNodeType.VARIABLE_NODE, a.getType());

@@ -1,6 +1,8 @@
 package chr.ved.parser;
 
 
+import chr.ved.parser.core.ExpressionNode;
+import chr.ved.parser.core.expressionparser.ExpressionParser;
 import chr.ved.tokenizer.Tokenizer;
 import chr.ved.tokenizer.core.Token;
 import org.slf4j.Logger;
@@ -16,15 +18,19 @@ public class Parser {
 
     private Stack<Token> tokens = new Stack<>();
     private Token lookahead;
-    private Tokenizer tokenizer;
+    private final Tokenizer tokenizer;
+    private final ExpressionParser expressionParser;
 
-    public Parser(Tokenizer tokenizer){
+    public Parser(Tokenizer tokenizer, ExpressionParser expressionParser){
         this.tokenizer = tokenizer;
+        this.expressionParser = expressionParser;
     }
 
-    public void parse(String strToParse){
+    public ExpressionNode parse(String strToParse){
         log.info("Start parsing: {}",strToParse);
         tokenizeString(strToParse);
+
+        return expressionParser.parseExpression(tokens);
     }
 
     private void tokenizeString(String str){

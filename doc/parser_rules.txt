@@ -1,9 +1,9 @@
 
-expression -> signed_term sum_op
+expression -> signed_term sum_operation
     signed_term -> PLUSMINUS term
     signed_term -> term
-    sum_op      -> PLUSMINUS term sum_op
-    sum_op      -> EPSILON
+    sum_operation -> PLUSMINUS term sum_op
+    sum_operation -> EPSILON
             term    -> factor term_op
             term_op -> MULTDIV signed_factor term_op
             term_op -> EPSILON
