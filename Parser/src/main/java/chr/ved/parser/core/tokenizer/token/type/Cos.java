@@ -1,6 +1,6 @@
-package chr.ved.tokenizer.core.type;
+package chr.ved.parser.core.tokenizer.token.type;
 
-import chr.ved.tokenizer.core.TokenType;
+import chr.ved.parser.core.tokenizer.token.TokenType;
 
 public class Cos implements TokenType {
     private final String type;

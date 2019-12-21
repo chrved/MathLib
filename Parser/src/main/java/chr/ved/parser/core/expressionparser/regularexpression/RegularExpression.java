@@ -3,8 +3,9 @@ package chr.ved.parser.core.expressionparser.regularexpression;
 import chr.ved.parser.core.ExpressionNode;
 import chr.ved.parser.core.expression.node.*;
 import chr.ved.parser.core.expressionparser.ExpressionParser;
+import chr.ved.parser.core.tokenizer.token.Token;
+import chr.ved.parser.core.tokenizer.token.type.Epsilon;
 import chr.ved.parser.exception.ParserException;
-import chr.ved.tokenizer.core.Token;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

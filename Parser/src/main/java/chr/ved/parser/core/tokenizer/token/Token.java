@@ -1,4 +1,4 @@
-package chr.ved.tokenizer.core;
+package chr.ved.parser.core.tokenizer.token;
 
 
 public class Token {

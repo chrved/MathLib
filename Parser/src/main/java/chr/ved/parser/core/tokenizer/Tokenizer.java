@@ -1,13 +1,16 @@
-package chr.ved.tokenizer;
+package chr.ved.parser.core.tokenizer;
 
-import chr.ved.tokenizer.core.Token;
-import chr.ved.tokenizer.core.TokenMatcher;
-import chr.ved.tokenizer.core.TokenType;
-import chr.ved.tokenizer.exception.TokenizerException;
+
+import chr.ved.parser.core.tokenizer.token.Token;
+import chr.ved.parser.core.tokenizer.token.TokenMatcher;
+import chr.ved.parser.core.tokenizer.token.TokenType;
+import chr.ved.parser.core.tokenizer.token.type.*;
+import chr.ved.parser.exception.TokenizerException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -20,6 +23,19 @@ public class Tokenizer {
     public Tokenizer() {
         tokenMatcher = new ArrayList<>();
         tokens = new ArrayList<>();
+        setupTokens();
+    }
+
+    private void setupTokens() {
+        addTokenType("\\s", new WhiteSpace()); // Normal whitespace
+        addTokenType("sin|cos|tan|sqrt", new Function()); // function
+        addTokenType("\\(", new OpenBracket()); // open bracket
+        addTokenType("\\)", new CloseBracket()); // close bracket
+        addTokenType("[+-]", new PlusMinus()); // plus or minus
+        addTokenType("[*/]", new MultDiv()); // mult or divide
+        addTokenType("\\^", new Raised()); // raised
+        addTokenType("[0-9]+", new Constant()); // integer number
+        addTokenType("[a-zA-Z][a-zA-Z0-9_]*", new Variable()); // variable
     }
 
     public void tokenize(String input) {
@@ -55,5 +71,18 @@ public class Tokenizer {
 
     public List<Token> getTokens() {
         return tokens;
+    }
+    public void reverseToken() { Collections.reverse(tokens); }
+
+    @Override
+    public String toString(){
+        if(tokens.isEmpty()) return "[EMPTY]";
+        String result = "[";
+        for (Token token : tokens) {
+            result += token.getToken()+":"+"\""+token.getSequence()+"\""+", ";
+        }
+        result = result.substring(0, result.length() - 2);
+        result += "]";
+        return result;
     }
 }
