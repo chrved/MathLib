@@ -1,30 +1,23 @@
 package chr.ved.parser.core.expressionparser.regularexpression;
 
-import chr.ved.parser.core.ExpressionNode;
+import chr.ved.parser.core.expression.ExpressionNode;
 import chr.ved.parser.core.expression.node.*;
-import chr.ved.parser.core.expressionparser.ExpressionParser;
+import chr.ved.parser.core.expressionparser.AbstractParser;
 import chr.ved.parser.core.tokenizer.token.Token;
-import chr.ved.parser.core.tokenizer.token.type.Epsilon;
 import chr.ved.parser.exception.ParserException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Stack;
 
-import static chr.ved.parser.core.ExpressionNode.ExpressionNodeType.ADDITION_NODE;
-import static chr.ved.parser.core.ExpressionNode.ExpressionNodeType.MULTIPLICATION_NODE;
+import static chr.ved.parser.core.expression.ExpressionNode.ExpressionNodeType.ADDITION_NODE;
+import static chr.ved.parser.core.expression.ExpressionNode.ExpressionNodeType.MULTIPLICATION_NODE;
 
-public class RegularExpression implements ExpressionParser {
+public class RegularExpression extends AbstractParser {
     private static Logger log = LoggerFactory.getLogger(RegularExpression.class);
-    private Stack<Token> tokens;
-    private Token lookahead;
 
     @Override
     public ExpressionNode parseExpression(Stack<Token> tokens) {
-        this.tokens = tokens;
-
-        lookahead = tokens.pop();
-
         ExpressionNode expr = expression();
 
         if (!lookahead.getToken().equals("EPSILON")) {
@@ -227,13 +220,13 @@ public class RegularExpression implements ExpressionParser {
         return sigTerm;
     }
 
-    private void nextToken(){
-
-        if (tokens.isEmpty()){
-            lookahead = new Token(new Epsilon(), "EPSILON");
-        } else {
-            lookahead = tokens.pop();
-        }
-        log.info("Got a new token. {} {}",lookahead.getToken(),lookahead.getSequence());
-    }
+//    private void nextToken(){
+//
+//        if (tokens.isEmpty()){
+//            lookahead = new Token(new Epsilon(), "EPSILON");
+//        } else {
+//            lookahead = tokens.pop();
+//        }
+//        log.info("Got a new token. {} {}",lookahead.getToken(),lookahead.getSequence());
+//    }
 }

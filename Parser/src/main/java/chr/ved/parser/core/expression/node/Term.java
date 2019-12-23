@@ -1,8 +1,10 @@
-package chr.ved.parser.core;
+package chr.ved.parser.core.expression.node;
+
+import chr.ved.parser.core.expression.ExpressionNode;
 
 public class Term {
-    public boolean positive;
-    public ExpressionNode expression;
+    public final boolean positive;
+    public final ExpressionNode expression;
 
     public Term(ExpressionNode expression) {
         this.positive = true;

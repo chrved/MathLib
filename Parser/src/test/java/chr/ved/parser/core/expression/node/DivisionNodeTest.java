@@ -1,6 +1,6 @@
 package chr.ved.parser.core.expression.node;
 
-import chr.ved.parser.core.ExpressionNode;
+import chr.ved.parser.core.expression.ExpressionNode;
 import chr.ved.parser.exception.EvaluationException;
 import org.junit.Test;
 

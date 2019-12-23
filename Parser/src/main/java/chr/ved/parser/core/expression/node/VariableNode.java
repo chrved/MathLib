@@ -1,10 +1,10 @@
 package chr.ved.parser.core.expression.node;
 
-import chr.ved.parser.core.ExpressionNode;
+import chr.ved.parser.core.expression.ExpressionNode;
 import chr.ved.parser.exception.EvaluationException;
 
 public class VariableNode implements ExpressionNode {
-    private String name;
+    private final String name;
     private double value;
     private boolean valueSet;
 

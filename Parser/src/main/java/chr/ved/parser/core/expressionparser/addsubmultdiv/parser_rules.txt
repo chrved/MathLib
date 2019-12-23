@@ -1,19 +1,19 @@
 
-expression -> signed_term sum_operation
-    signed_term -> PLUSMINUS term
-    signed_term -> term
-    sum_operation -> PLUSMINUS term sum_op
-    sum_operation -> EPSILON
-            term    -> factor term_op
-            term_op -> MULTDIV signed_factor term_op
-            term_op -> EPSILON
-                signed_factor -> PLUSMINUS factor
-                signed_factor -> factor
-                    factor      -> argument factor_op
-                    factor_op   -> RAISED signed_factor
-                    factor_op   -> EPSILON
-                        argument -> value
-                        argument -> FUNCTION argument
-                        argument -> OPEN_BRACKET expression CLOSE_BRACKET
-                            value -> NUMBER
-                            value -> VARIABLE
+1 + 1
+-1 +1
+1 +1+n....
+1*-1
+1/-1
+1*-1+1+-n...
+
+
+expression -> signedTerm sumOperation
+    signedTerm -> PLUSMINUS term | term
+    sumOperation -> PLUSMINUS term sumOperation | EPSILON
+    term -> factor termOperator
+    termOperator -> MULTDIV signedFactor termOperator | EPSILON
+    signedFactor -> PLUSMINUS factor | factor
+    factor -> argument factorOperator
+    factorOperator -> RAISED signed_factor | EPSILON
+    argument -> value
+    value -> CONSTANT | VARIABLE

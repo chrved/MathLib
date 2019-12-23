@@ -1,11 +1,11 @@
 package chr.ved.parser.core.expression.node;
 
 
-import chr.ved.parser.core.ExpressionNode;
+import chr.ved.parser.core.expression.ExpressionNode;
 
 public class ExponentiationNode implements ExpressionNode {
-    private ExpressionNode base;
-    private ExpressionNode exponent;
+    private final ExpressionNode base;
+    private final ExpressionNode exponent;
 
     public ExponentiationNode(ExpressionNode base, ExpressionNode exponent) {
         this.base = base;

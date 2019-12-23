@@ -1,10 +1,10 @@
 package chr.ved.parser.core.expression.node;
 
 
-import chr.ved.parser.core.ExpressionNode;
+import chr.ved.parser.core.expression.ExpressionNode;
 
 public class ConstantNode implements ExpressionNode {
-    private double value;
+    private final double value;
 
     public ConstantNode(double value){ this.value = value;}
     public ConstantNode(String value){ this.value = Double.parseDouble(value);}

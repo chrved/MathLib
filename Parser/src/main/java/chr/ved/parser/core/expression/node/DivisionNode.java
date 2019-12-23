@@ -1,7 +1,7 @@
 package chr.ved.parser.core.expression.node;
 
-import chr.ved.parser.core.Expression;
-import chr.ved.parser.core.ExpressionNode;
+import chr.ved.parser.core.expression.Expression;
+import chr.ved.parser.core.expression.ExpressionNode;
 import chr.ved.parser.exception.EvaluationException;
 
 public class DivisionNode extends Expression {

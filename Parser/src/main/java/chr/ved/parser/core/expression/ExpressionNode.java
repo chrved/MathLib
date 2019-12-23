@@ -1,4 +1,4 @@
-package chr.ved.parser.core;
+package chr.ved.parser.core.expression;
 
 public interface ExpressionNode {
 

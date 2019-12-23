@@ -1,8 +1,7 @@
 package chr.ved.parser.core.expression.node;
 
-import chr.ved.parser.core.Expression;
-import chr.ved.parser.core.ExpressionNode;
-import chr.ved.parser.core.Term;
+import chr.ved.parser.core.expression.Expression;
+import chr.ved.parser.core.expression.ExpressionNode;
 
 public class SubtractionNode extends Expression {
     public SubtractionNode(){ super();}

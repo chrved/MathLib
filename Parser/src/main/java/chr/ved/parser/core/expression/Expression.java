@@ -1,9 +1,11 @@
-package chr.ved.parser.core;
+package chr.ved.parser.core.expression;
+
+import chr.ved.parser.core.expression.node.Term;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Expression implements ExpressionNode{
+public abstract class Expression implements ExpressionNode {
     protected List<Term> terms;
 
     public Expression(){

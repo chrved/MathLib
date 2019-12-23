@@ -16,7 +16,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Tokenizer {
-    private static Logger log = LoggerFactory.getLogger(Tokenizer.class);
+    private static final Logger log = LoggerFactory.getLogger(Tokenizer.class);
     private List<TokenMatcher> tokenMatcher;
     private List<Token> tokens;
 
@@ -28,14 +28,14 @@ public class Tokenizer {
 
     private void setupTokens() {
         addTokenType("\\s", new WhiteSpace()); // Normal whitespace
-        addTokenType("sin|cos|tan|sqrt", new Function()); // function
+        //addTokenType("sin|cos|tan|sqrt", new Function()); // function
         addTokenType("\\(", new OpenBracket()); // open bracket
         addTokenType("\\)", new CloseBracket()); // close bracket
         addTokenType("[+-]", new PlusMinus()); // plus or minus
         addTokenType("[*/]", new MultDiv()); // mult or divide
         addTokenType("\\^", new Raised()); // raised
         addTokenType("[0-9]+", new Constant()); // integer number
-        addTokenType("[a-zA-Z][a-zA-Z0-9_]*", new Variable()); // variable
+        //addTokenType("[a-zA-Z][a-zA-Z0-9_]*", new Variable()); // variable
     }
 
     public void tokenize(String input) {
