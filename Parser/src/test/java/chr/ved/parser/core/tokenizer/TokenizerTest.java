@@ -52,8 +52,15 @@ public class TokenizerTest {
         tokenizer.tokenize("5x^2 -2x +3");
         System.out.println(tokenizer.toString());
     }
-    @Test(expected = TokenizerException.class)
+
+    @Test
     public void test3(){
+        tokenizer.tokenize("1.1 +1");
+        System.out.println(tokenizer.toString());
+    }
+
+    @Test(expected = TokenizerException.class)
+    public void test4(){
         tokenizer.tokenize("cos(x) * (1 + var_12) &");
     }
 }

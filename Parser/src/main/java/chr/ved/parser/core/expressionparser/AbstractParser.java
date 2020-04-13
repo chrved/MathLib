@@ -12,7 +12,7 @@ public abstract class AbstractParser implements ExpressionParser{
     protected void nextToken(){
 
         if (tokens.isEmpty()){
-            lookahead = new Token(new Epsilon(), "EPSILON");
+//            lookahead = new Token(new Epsilon(), "EPSILON");
         } else {
             lookahead = tokens.pop();
         }

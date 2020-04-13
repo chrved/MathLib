@@ -2,13 +2,9 @@ package chr.ved.parser.core.tokenizer.token.type;
 
 import chr.ved.parser.core.tokenizer.token.TokenType;
 
-public class Constant implements TokenType {
-    private final String type;
+public class Constant extends TokenType {
     public Constant(){
-        type = "CONSTANT";
+        super("CONSTANT", "([0-9]+)(\\.([0-9]+))?");
     }
-    @Override
-    public String getType() {
-        return type;
-    }
+
 }

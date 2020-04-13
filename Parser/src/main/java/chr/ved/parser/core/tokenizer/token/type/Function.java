@@ -2,15 +2,9 @@ package chr.ved.parser.core.tokenizer.token.type;
 
 import chr.ved.parser.core.tokenizer.token.TokenType;
 
-public class Function implements TokenType {
-    private final String type;
+public class Function extends TokenType {
 
     public Function() {
-        type = "FUNCTION";
-    }
-
-    @Override
-    public String getType() {
-        return type;
+        super("FUNCTION", "sin|cos|tan|sqrt");;
     }
 }

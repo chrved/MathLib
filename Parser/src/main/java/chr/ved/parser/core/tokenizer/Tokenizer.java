@@ -1,8 +1,6 @@
 package chr.ved.parser.core.tokenizer;
 
-
 import chr.ved.parser.core.tokenizer.token.Token;
-import chr.ved.parser.core.tokenizer.token.TokenMatcher;
 import chr.ved.parser.core.tokenizer.token.TokenType;
 import chr.ved.parser.core.tokenizer.token.type.*;
 import chr.ved.parser.exception.TokenizerException;
@@ -13,73 +11,75 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Tokenizer {
     private static final Logger log = LoggerFactory.getLogger(Tokenizer.class);
-    private List<TokenMatcher> tokenMatcher;
+    private List<TokenType> tokenTypes;
     private List<Token> tokens;
 
     public Tokenizer() {
-        tokenMatcher = new ArrayList<>();
+        tokenTypes = new ArrayList<>();
         tokens = new ArrayList<>();
         setupTokens();
     }
 
     private void setupTokens() {
-        addTokenType("\\s", new WhiteSpace()); // Normal whitespace
-        //addTokenType("sin|cos|tan|sqrt", new Function()); // function
-        addTokenType("\\(", new OpenBracket()); // open bracket
-        addTokenType("\\)", new CloseBracket()); // close bracket
-        addTokenType("[+-]", new PlusMinus()); // plus or minus
-        addTokenType("[*/]", new MultDiv()); // mult or divide
-        addTokenType("\\^", new Raised()); // raised
-        addTokenType("[0-9]+", new Constant()); // integer number
-        //addTokenType("[a-zA-Z][a-zA-Z0-9_]*", new Variable()); // variable
+        addTokenType(new WhiteSpace()); // Normal whitespace
+        addTokenType(new Function()); // function
+        addTokenType(new OpenBracket()); // open bracket
+        addTokenType(new CloseBracket()); // close bracket
+        addTokenType(new PlusMinus()); // plus or minus
+        addTokenType(new MultDiv()); // mult or divide
+        addTokenType(new Raised()); // raised
+        addTokenType(new Constant()); // integer number
+        addTokenType(new Variable()); // variable
     }
 
     public void tokenize(String input) {
         input = input.trim();
         tokens.clear();
 
-        while (!input.equals("")){
+        while (!input.equals("")) {
             boolean foundMatch = false;
-            for (TokenMatcher tokenMatcher : tokenMatcher) {
-                Matcher match = tokenMatcher.getRegex().matcher(input);
+            for (TokenType tokenType : tokenTypes) {
+                Matcher match = tokenType.getRegex().matcher(input);
                 if (match.find()) {
                     foundMatch = true;
 
                     String tok = match.group().trim();
-                    if(!tok.isEmpty()){
-                        log.info("Found token: {} with value: {}", tokenMatcher.getToken().getType(), tok);
-                        tokens.add(new Token(tokenMatcher.getToken(), tok));
+                    if (!tok.isEmpty()) {
+                        log.info("Found token: {} with value: {}", tokenType.getType(), tok);
+                        tokens.add(new Token(tokenType, tok));
                     }
 
                     input = match.replaceFirst("");
                     break;
                 }
             }
-            if (!foundMatch){
-                throw new TokenizerException("Unexpected character in input: "+input);
+            if (!foundMatch) {
+                throw new TokenizerException("Unexpected character in input: " + input);
             }
         }
     }
 
-    public void addTokenType(String regex, TokenType token) {
-        tokenMatcher.add(new TokenMatcher(Pattern.compile("^("+regex+")"), token));
+    public void addTokenType(TokenType token) {
+        tokenTypes.add(token);
     }
 
     public List<Token> getTokens() {
         return tokens;
     }
-    public void reverseToken() { Collections.reverse(tokens); }
+
+    public void reverseToken() {
+        Collections.reverse(tokens);
+    }
 
     @Override
-    public String toString(){
-        if(tokens.isEmpty()) return "[EMPTY]";
+    public String toString() {
+        if (tokens.isEmpty()) return "[EMPTY]";
         String result = "[";
         for (Token token : tokens) {
-            result += token.getToken()+":"+"\""+token.getSequence()+"\""+", ";
+            result += token.getToken() + ":" + "\"" + token.getSequence() + "\"" + ", ";
         }
         result = result.substring(0, result.length() - 2);
         result += "]";
